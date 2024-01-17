@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Text, StyleSheet } from "react-native";
 
-const CompoentsScreen = () => {
+const ComponentsScreen = () => {
   return <Text style={styles.textStyle}>This is the components screen</Text>;
 };
 
@@ -11,4 +11,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(CompoentsScreen);
+export default memo(ComponentsScreen);
