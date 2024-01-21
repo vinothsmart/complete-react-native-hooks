@@ -1,8 +1,13 @@
 import React, { memo } from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 
 const ComponentsScreen = () => {
-  return <Text style={styles.textStyle}>This is the components screen</Text>;
+  return (
+    <View>
+      <Text style={styles.textStyle}>This is the components screen</Text>
+      <Text> Hi There</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
