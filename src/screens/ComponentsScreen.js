@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { Text, StyleSheet, View } from "react-native";
 
 const ComponentsScreen = () => {
-  const greeting = ["assad", "bbb"];
+  const greeting = { color: "red" };
   return (
     <View>
       <Text style={styles.textStyle}>This is the components screen</Text>
