@@ -2,11 +2,11 @@ import React, { memo } from "react";
 import { Text, StyleSheet, View } from "react-native";
 
 const ComponentsScreen = () => {
-  const greeting = { color: "red" };
+  const greeting = <Text>Hi there!</Text>;
   return (
     <View>
       <Text style={styles.textStyle}>This is the components screen</Text>
-      <Text> {greeting}</Text>
+      {greeting}
     </View>
   );
 };
