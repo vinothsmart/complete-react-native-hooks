@@ -1,4 +1,4 @@
-import { router, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import { useEffect } from "react";
 
 function RouteGuard({ children }: { children: React.ReactNode }) {
@@ -7,11 +7,11 @@ function RouteGuard({ children }: { children: React.ReactNode }) {
     if (!isAuthenticated) {
       // Redirect to login or show an error
       // console.warn("User is not authenticated, redirecting to login.");
-      router.replace("/auth");
+      // router.replace("/auth");
     }
-  });
+  }, [isAuthenticated]);
   // Here you can implement any route guard logic if needed
-  return children;
+  return <>{children}</>;
 }
 
 export default function RootLayout() {
