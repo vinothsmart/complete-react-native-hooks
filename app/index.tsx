@@ -1,28 +1,38 @@
 import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Welcome React Native</Text>
-      <Link
-        style={{
-          width: 100,
-          height: 50,
-          backgroundColor: "coral",
-          borderRadius: 8,
-          textAlign: "center",
-        }}
-        href="/login"
-      >
-        Login Page
+    <View style={styles.container}>
+      <Text style={styles.welcomeText}>Welcome React Native</Text>
+      <Link style={styles.navButton} href="/login">
+        <Text style={styles.navButtonText}>Login Page</Text>
       </Link>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  navButton: {
+    width: 100,
+    height: 20,
+    backgroundColor: "coral",
+    borderRadius: 8,
+    textAlign: "center",
+  },
+  navButtonText: {
+    color: "white",
+    textAlign: "center",
+    lineHeight: 20,
+  },
+
+  welcomeText: {
+    fontSize: 20,
+    marginBottom: 20,
+  },
+});
