@@ -11,7 +11,18 @@ export default function Index() {
       }}
     >
       <Text>Welcome React Native</Text>
-      <Link href="/login">Login Page</Link>
+      <Link
+        style={{
+          width: 100,
+          height: 50,
+          backgroundColor: "coral",
+          borderRadius: 8,
+          textAlign: "center",
+        }}
+        href="/login"
+      >
+        Login Page
+      </Link>
     </View>
   );
 }
