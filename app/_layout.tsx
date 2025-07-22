@@ -5,7 +5,7 @@ const RouteGuard = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const isAuthenticated = false; // Replace with actual authentication logic
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (isAuthenticated) {
       // Redirect to login or show an error
       // console.warn("User is not authenticated, redirecting to login.");
       router.replace("/auth");
