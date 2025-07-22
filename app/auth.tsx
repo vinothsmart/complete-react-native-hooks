@@ -80,6 +80,7 @@ const AuthScreen = () => {
           label="Password"
           autoCapitalize="none"
           mode="outlined"
+          secureTextEntry
           onChangeText={handleInputChange("password")}
         />
         {error && <Text style={{ color: theme.colors.error }}>{error}</Text>}
