@@ -1,3 +1,5 @@
+import { useAuth } from "@/lib/auth-context";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
 import { Button, Text, TextInput, useTheme } from "react-native-paper";
@@ -13,8 +15,11 @@ const AuthScreen = () => {
   });
   const [error, setError] = useState<string>("");
   const theme = useTheme();
+  const router = useRouter();
 
-  const handleAuth = () => {
+  const { signIn, signUp } = useAuth();
+
+  const handleAuth = async () => {
     if (!userDetails.email || !userDetails.password) {
       setError("Please fill the fields");
       return;
@@ -24,6 +29,20 @@ const AuthScreen = () => {
       return;
     }
     setError("");
+    if (isSingup) {
+      const error = await signUp(userDetails.email, userDetails.password);
+      if (error) {
+        setError(error);
+        return;
+      }
+    } else {
+      const error = await signIn(userDetails.email, userDetails.password);
+      if (error) {
+        setError(error);
+        return;
+      }
+      router.replace("/");
+    }
   };
 
   const handleInputChange =
@@ -37,8 +56,6 @@ const AuthScreen = () => {
   const handleSwitchMode = () => {
     setIsSignup((prev) => !prev);
   };
-
-  console.log(userDetails);
 
   return (
     <KeyboardAvoidingView
