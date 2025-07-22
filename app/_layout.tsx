@@ -1,15 +1,16 @@
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { useEffect } from "react";
 
 function RouteGuard({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
   const isAuthenticated = false; // Replace with actual authentication logic
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (isAuthenticated) {
       // Redirect to login or show an error
       // console.warn("User is not authenticated, redirecting to login.");
-      // router.replace("/auth");
+      router.replace("/auth");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, router]);
   // Here you can implement any route guard logic if needed
   return <>{children}</>;
 }

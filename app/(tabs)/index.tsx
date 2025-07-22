@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome React Native</Text>
-      <Link style={styles.navButton} href="/login">
+      <Link style={styles.navButton} href="/auth">
         <Text style={styles.navButtonText}>Login Page</Text>
       </Link>
     </View>
