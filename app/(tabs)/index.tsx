@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Index() {
+const Index = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome React Native</Text>
@@ -10,7 +10,9 @@ export default function Index() {
       </Link>
     </View>
   );
-}
+};
+
+export default Index;
 
 const styles = StyleSheet.create({
   container: {

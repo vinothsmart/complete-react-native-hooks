@@ -2,7 +2,7 @@ import { useState } from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
 import { Button, Text, TextInput, useTheme } from "react-native-paper";
 
-export default function AuthScreen() {
+const AuthScreen = () => {
   const [isSingup, setIsSignup] = useState<boolean>(false);
   const [userDetails, setUserDetails] = useState<{
     email: string;
@@ -81,7 +81,9 @@ export default function AuthScreen() {
       </View>
     </KeyboardAvoidingView>
   );
-}
+};
+
+export default AuthScreen;
 
 const styles = StyleSheet.create({
   container: {

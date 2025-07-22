@@ -2,7 +2,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { Tabs } from "expo-router";
 
-export default function TabsLayout() {
+const TabsLayout = () => {
   return (
     <Tabs
       screenOptions={{
@@ -36,4 +36,6 @@ export default function TabsLayout() {
       />
     </Tabs>
   );
-}
+};
+
+export default TabsLayout;
