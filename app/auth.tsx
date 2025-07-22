@@ -19,6 +19,11 @@ export default function AuthScreen() {
       setError("Please fill the fields");
       return;
     }
+    if (userDetails.password.length < 6) {
+      setError("Passwords must be at least 6 characters long");
+      return;
+    }
+    setError("");
   };
 
   const handleInputChange =
