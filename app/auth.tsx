@@ -11,11 +11,12 @@ export default function AuthScreen() {
     email: "",
     password: "",
   });
+  const [error, setError] = useState<string>("");
 
-  const handleAuth = async () => {
-    // setUserDetails((prev) => ({
-    //   ...prev,
-    // }));
+  const handleAuth = () => {
+    if (!userDetails.email || !userDetails.password) {
+      setError("Please fill the fields");
+    }
   };
 
   const handleInputChange =
@@ -57,10 +58,15 @@ export default function AuthScreen() {
           mode="outlined"
           onChangeText={handleInputChange("password")}
         />
-        <Button style={styles.button} mode="contained">
+        {error && <Text style={{ color: "red" }}>{error}</Text>}
+        <Button style={styles.button} mode="contained" onPress={handleAuth}>
           {isSingup ? "Sign Up" : "Sign In"}
         </Button>
-        <Button style={styles.switchModeButton} mode="text">
+        <Button
+          style={styles.switchModeButton}
+          mode="text"
+          onPress={handleSwitchMode}
+        >
           {isSingup
             ? "Already have an account? Sign In"
             : "Don't have an account? Sign Up"}
