@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
-import { Button, Text, TextInput } from "react-native-paper";
+import { Button, Text, TextInput, useTheme } from "react-native-paper";
 
 export default function AuthScreen() {
   const [isSingup, setIsSignup] = useState<boolean>(false);
@@ -12,10 +12,12 @@ export default function AuthScreen() {
     password: "",
   });
   const [error, setError] = useState<string>("");
+  const theme = useTheme();
 
   const handleAuth = () => {
     if (!userDetails.email || !userDetails.password) {
       setError("Please fill the fields");
+      return;
     }
   };
 
@@ -58,7 +60,7 @@ export default function AuthScreen() {
           mode="outlined"
           onChangeText={handleInputChange("password")}
         />
-        {error && <Text style={{ color: "red" }}>{error}</Text>}
+        {error && <Text style={{ color: theme.colors.error }}>{error}</Text>}
         <Button style={styles.button} mode="contained" onPress={handleAuth}>
           {isSingup ? "Sign Up" : "Sign In"}
         </Button>
