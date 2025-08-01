@@ -1,10 +1,11 @@
 import { AuthProvider, useAuth } from "@/lib/auth-context";
-import { Stack, useRouter } from "expo-router";
+import { Stack, useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
 
 const RouteGuard = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const { user } = useAuth();
+  const segments = useSegments();
 
   useEffect(() => {
     if (user) {
